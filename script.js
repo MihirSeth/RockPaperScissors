@@ -10,6 +10,31 @@ function computerPlay(){
 let playerScore = 0;
 let computerScore = 0;
 
+
+function checkWinner(){
+    document.getElementById("computerScore").innerHTML = `${computerScore}`;
+    document.getElementById("playerScore").innerHTML = `${playerScore}`;
+    if (computerScore === 5 || playerScore === 5){
+        if (playerScore > computerScore){
+            alert('You win! The score was ' + playerScore + ' to ' + computerScore + ' in your favour.')
+        } else if (computerScore > playerScore) {
+            alert('You lose! The score was ' + computerScore + ' to ' + playerScore + ' in the computer\'s favour.')
+     
+        } else{
+            alert('It is a tie, both scores are at '+ playerScore)
+        }
+        playerScore = 0;
+        computerScore = 0;
+
+        document.getElementById("computerScore").innerHTML = '0';
+        document.getElementById("playerScore").innerHTML = '0';
+        document.getElementById("result").innerHTML = 'PLAY TO GET THE RESULT!';
+
+    } else {
+        return;
+    }
+}
+
 function playRound (computerSelection, playerSelection){
     let computerChoice = computerSelection;
     computerChoice = computerChoice.toLowerCase();
@@ -22,38 +47,38 @@ function playRound (computerSelection, playerSelection){
     } else if (playerSelection==='rock'){
         if (computerChoice=='paper'){
             computerScore++;
-            document.getElementById("computerScore").innerHTML = `${computerScore}`;
             document.getElementById("result").innerHTML =  "You Lose! Paper beats Rock";
             console.log("You Lose! Paper beats Rock")
+            checkWinner();
         } else{
             playerScore++;
-            document.getElementById("playerScore").innerHTML = `${playerScore}`;
             document.getElementById("result").innerHTML = "You Win! Rock beats Scissor";
             console.log("You Win! Rock beats Scissor")
+            checkWinner();
         }
     } else if (playerSelection==='paper'){
         if (computerChoice=='scissor'){
             computerScore++;
-            document.getElementById("computerScore").innerHTML = `${computerScore}`;
             document.getElementById("result").innerHTML = "You Lose! Scissor beats Paper";
             console.log("You Lose! Scissor beats Paper")
+            checkWinner();
         } else{
             playerScore++;
-            document.getElementById("playerScore").innerHTML = `${playerScore}`;
             document.getElementById("result").innerHTML = "You Win! Paper beats Rock";
             console.log("You Win! Paper beats Rock")
+            checkWinner();
         }
     } else if (playerSelection==='scissor'){
         if (computerChoice=='rock'){
             computerScore++;
-            document.getElementById("computerScore").innerHTML = `${computerScore}`;
             document.getElementById("result").innerHTML = "You Lose! Rock beats Scissor";
             console.log("You Lose! Rock beats Scissor")
+            checkWinner();
         } else{
             playerScore++;
-            document.getElementById("playerScore").innerHTML = `${playerScore}`;
             document.getElementById("result").innerHTML = "You Win! Scissor beats Paper";
             console.log("You Win! Scissor beats Paper")
+            checkWinner();
         }
     }
 
@@ -70,14 +95,14 @@ function playRound (computerSelection, playerSelection){
 //         console.log(playRound(computerChoice, playerChoice))
 //     }
 
-//     if (playerScore > computerScore){
-//         alert('You win! The score is ' + playerScore + ' to ' + computerScore + 'in your favour.')
-//     } else if (computerScore > playerScore) {
-//         alert('You lose! The score is ' + computerScore + ' to ' + playerScore + ' in the computer\'s favour.')
+    // if (playerScore > computerScore){
+    //     alert('You win! The score is ' + playerScore + ' to ' + computerScore + 'in your favour.')
+    // } else if (computerScore > playerScore) {
+    //     alert('You lose! The score is ' + computerScore + ' to ' + playerScore + ' in the computer\'s favour.')
  
-//     } else {
-//         alert('It is a tie, both scores are at '+ playerScore)
-//     }
+    // } else {
+    //     alert('It is a tie, both scores are at '+ playerScore)
+    // }
 // }
 
 
