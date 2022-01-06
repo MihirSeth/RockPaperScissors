@@ -11,24 +11,40 @@ let playerScore = 0;
 let computerScore = 0;
 
 
+let winnerORloser = document.getElementById("winnerORloser")
+
+
 function checkWinner(){
     document.getElementById("computerScore").innerHTML = `${computerScore}`;
     document.getElementById("playerScore").innerHTML = `${playerScore}`;
     if (computerScore === 5 || playerScore === 5){
         if (playerScore > computerScore){
-            alert('You win! The score was ' + playerScore + ' to ' + computerScore + ' in your favour.')
+            // alert('You win! The score was ' + playerScore + ' to ' + computerScore + ' in your favour.')
+            winnerORloser.innerHTML = 'Winner!';
+            document.getElementById("result").innerHTML =  "Victory! You won the battle, but the war is not over! Let's win again Soldier!";
+            document.getElementById("rockbtn").disabled = true;
+            document.getElementById("scissorbtn").disabled = true;
+            document.getElementById("paperbtn").disabled = true;
+            document.getElementById("reloadPage").hidden = false;
+
         } else if (computerScore > playerScore) {
-            alert('You lose! The score was ' + computerScore + ' to ' + playerScore + ' in the computer\'s favour.')
-     
+            winnerORloser.innerHTML = 'Loser!';
+            document.getElementById("result").innerHTML =  "Retreat! You lost the battle, but not the war! Try again Soldier!";
+            document.getElementById("rockbtn").disabled = true;
+            document.getElementById("scissorbtn").disabled = true;
+            document.getElementById("paperbtn").disabled = true;
+            document.getElementById("reloadPage").hidden = false;
+
+             
         } else{
             alert('It is a tie, both scores are at '+ playerScore)
-        }
-        playerScore = 0;
-        computerScore = 0;
+            document.getElementById("result").innerHTML =  "No result! The war is still not over! Try again Soldier!";
+            document.getElementById("rockbtn").disabled = true;
+            document.getElementById("scissorbtn").disabled = true;
+            document.getElementById("paperbtn").disabled = true;
+            document.getElementById("reloadPage").hidden = false;
 
-        document.getElementById("computerScore").innerHTML = '0';
-        document.getElementById("playerScore").innerHTML = '0';
-        document.getElementById("result").innerHTML = 'PLAY TO GET THE RESULT!';
+        }
 
     } else {
         return;
@@ -121,15 +137,20 @@ function game3(){
     playRound(computerPlay(), 'Scissor')
 }
 
+function reload(){
+    window.location.reload();
+}
 const rockbtn = document.querySelector('.rockbtn');
 const paperbtn = document.querySelector('.paperbtn');
 const scissorbtn = document.querySelector('.scissorbtn');
+const reloadPage = document.querySelector('.reloadPage');
+
 
 rockbtn.addEventListener('click', game1);
 paperbtn.addEventListener('click', game2);
 scissorbtn.addEventListener('click', game3);
 
-
+reloadPage.addEventListener('click', reload);
 
 
 

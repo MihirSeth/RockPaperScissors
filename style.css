@@ -55,7 +55,7 @@ body{
 }
 
 .scissorbtn{
-    border: 2px solid black;
+    border: 2px solid #000000;
     background-color: #393e46;
     font-size: 18px;
     height: 150px;
@@ -146,4 +146,31 @@ h2{
     font-size: 32px;
     text-align: center;
     
+}
+
+.reloadPageDIV{
+    height: 50px;
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.reloadPage{
+
+    border: 2px solid black;
+    background-color: #393e46;
+    font-size: 16px;
+    height: 40px;
+    width: 17%;
+    border-radius: 10px;
+    color: #fac650;
+    font-family: 'Lasso Of Truth', sans-serif;
+
+    /* box-shadow: 0 4px 8px ; */
+}
+
+.reloadPage:hover{
+    background-color: #4a4f57;
+
 }
